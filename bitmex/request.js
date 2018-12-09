@@ -1,14 +1,14 @@
 var request = require('request');
 var crypto = require('crypto');
 
-var apiKey = "your_id";
-var apiSecret = "your_secret";
+var apiKey = "Ol8zB3C1KtB7IGeMp1i6Y1si";
+var apiSecret = "aKMNONbyhZavg8xwSsB9DzO3_3b1oruJdQrcSh9N9nNI3T97";
 
 var verb = 'POST',
   path = '/api/v1/order',
   expires = new Date().getTime() + (60 * 1000), // 1 min in the future
-  //data = {symbol:"XBTUSD",orderQty:1,price:3700,ordType:"Limit"};
-  data = {symbol:"XBTUSD",orderQty:1,ordType:"Market"};
+  data = {symbol:"XBTUSD",orderQty:1,price:590,ordType:"Limit"};
+
 // Pre-compute the postBody so we can be sure that we're using *exactly* the same body in the request
 // and in the signature. If you don't do this, you might get differently-sorted keys and blow the signature.
 var postBody = JSON.stringify(data);
@@ -36,4 +36,4 @@ const requestOptions = {
 request(requestOptions, function(error, response, body) {
   if (error) { console.log(error); }
   console.log(body);
-});
+})

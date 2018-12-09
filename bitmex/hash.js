@@ -1,8 +1,8 @@
 var request = require('request');
 var crypto = require('crypto');
 
-var apiKey = "your_id";
-var apiSecret = "your_secret";
+
+var apiSecret = "BUv-Qf1yz3OTZJhBJNSeadj5AjLBqhl9jt6wROPkmKWB4QDk";
 
 var verb = 'POST',
   path = '/api/v1/order',
