@@ -7,5 +7,7 @@ https://www.okex.com/   https://www.binance.co/cn/
 
 #main.go
 打开浏览器，访问 http://127.0.0.1  
-postman: post模式，req.body 中输入 {"BMP":55} 点击post    
+postman: post模式，req.body 中输入 {"BMP":55} 点击post  
+
+#bitmex API 见request.js ,golang的apikey hash算法见hash.go  
 
