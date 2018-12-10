@@ -1,4 +1,12 @@
 # blockchain
+## 如果用的ssr代理一点要注意加上proxy:'http://127.0.0.1:1080'  
+  const requestOptions = {  
+	  headers: headers,  
+	  url:'https://testnet.bitmex.com'+path,  
+	  method: verb,  
+	  body: postBody,  
+	  proxy:'http://127.0.0.1:1080'  
+	};  
 # https://blockchain.info   https://blockexplorer.com https://btc.com   https://etherchain.org  https://bitnodes.earn.com/
 
 # btc 场外交易   

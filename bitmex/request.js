@@ -4,10 +4,12 @@ var crypto = require('crypto');
 var apiKey = "Ol8zB3C1KtB7IGeMp1i6Y1si";
 var apiSecret = "aKMNONbyhZavg8xwSsB9DzO3_3b1oruJdQrcSh9N9nNI3T97";
 
+
 var verb = 'POST',
   path = '/api/v1/order',
   expires = new Date().getTime() + (60 * 1000), // 1 min in the future
-  data = {symbol:"XBTUSD",orderQty:1,price:590,ordType:"Limit"};
+  //data = {symbol:"XBTUSD",orderQty:1,price:590,ordType:"Limit"};
+  data = {symbol:"XBTUSD",orderQty:1,ordType:"Market"};
 
 // Pre-compute the postBody so we can be sure that we're using *exactly* the same body in the request
 // and in the signature. If you don't do this, you might get differently-sorted keys and blow the signature.
@@ -30,10 +32,21 @@ const requestOptions = {
   headers: headers,
   url:'https://testnet.bitmex.com'+path,
   method: verb,
-  body: postBody
+  body: postBody,
+  proxy:'http://127.0.0.1:1080'
 };
 
 request(requestOptions, function(error, response, body) {
   if (error) { console.log(error); }
   console.log(body);
-})
+});
+//requestOptions.agentClass = Agent;
+
+// require('socks5-https-client').request(requestOptions, function(res) {
+    // console.log('STATUS: ' + res.statusCode);
+    // console.log('HEADERS: ' + JSON.stringify(res.headers));
+    // res.setEncoding('utf8');
+    // res.on('data', function (chunk) {
+        // console.log('BODY: ' + chunk);
+    // });
+// });
