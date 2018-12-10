@@ -14,9 +14,9 @@ var verb = 'POST',
 // Pre-compute the postBody so we can be sure that we're using *exactly* the same body in the request
 // and in the signature. If you don't do this, you might get differently-sorted keys and blow the signature.
 var postBody = JSON.stringify(data);
-
+//var signature = crypto.createHmac('sha256', apiSecret).update(verb + path +  postBody).digest('hex');
 var signature = crypto.createHmac('sha256', apiSecret).update(verb + path + expires + postBody).digest('hex');
-
+console.log(verb + path + expires + postBody);
 var headers = {
   'content-type' : 'application/json',
   'Accept': 'application/json',
@@ -36,17 +36,9 @@ const requestOptions = {
   proxy:'http://127.0.0.1:1080'
 };
 
-request(requestOptions, function(error, response, body) {
-  if (error) { console.log(error); }
-  console.log(body);
-});
-//requestOptions.agentClass = Agent;
-
-// require('socks5-https-client').request(requestOptions, function(res) {
-    // console.log('STATUS: ' + res.statusCode);
-    // console.log('HEADERS: ' + JSON.stringify(res.headers));
-    // res.setEncoding('utf8');
-    // res.on('data', function (chunk) {
-        // console.log('BODY: ' + chunk);
-    // });
+// request(requestOptions, function(error, response, body) {
+  // if (error) { console.log(error); }
+  // console.log(body);
 // });
+
+
